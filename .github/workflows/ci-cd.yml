@@ -42,6 +42,14 @@ jobs:
 
     - name: Install dependencies
       run: npx ci
+    
+    - name: Set up Git user
+      run: |
+        git config --global user.email "vian.117.bls@gmail.com"
+        git config --global user.name "Rayhand117"
+
+    - name: Deploy to GitHub Pages
+      run: npm run deploy
 
     - name: Deploy to GitHub Pages
       run: npm run deploy
