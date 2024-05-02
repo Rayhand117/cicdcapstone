@@ -6,4 +6,5 @@ function shuffle(a) {
   return a;
 }
 
+// eslint-disable-next-line no-undef
 module.exports = shuffle; //This should be the last line in the file
