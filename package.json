@@ -8,8 +8,7 @@
     "build": "npx parcel build src/index.html --public-url https://github.com/Rayhand117/cicdcapstone",
     "lint": "npx eslint src/.",
     "test": "npx jest",
-    "deploy": "npm run build && GH_TOKEN=$GH_TOKEN npx gh-pages -d dist -r https://$GH_TOKEN@github.com/Rayhand117/cicdcapstone.git",
-    "ci": "npm run lint && npm run test && npm run deploy"
+    "ci": "npm run lint && npm run test && npm run build"
   },
   "devDependencies": {
     "@eslint/js": "^9.1.1",

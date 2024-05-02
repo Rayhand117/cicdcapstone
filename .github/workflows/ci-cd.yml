@@ -19,13 +19,16 @@ jobs:
         node-version: '18.15.0'
 
     - name: Install dependencies
-      run: npx ci
+      run: npm ci
 
     - name: Run Linter
       run: npm run lint
 
     - name: Run Tests
       run: npm run test
+    
+    - name: Run Build
+      run: npm run build
 
   deploy:
     needs: build
@@ -35,20 +38,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18.15.0'
-
-    - name: Install dependencies
-      run: npx ci
-    
-    - name: Set up Git user
-      run: |
-        git config --global user.email "vian.117.bls@gmail.com"
-        git config --global user.name "Rayhand117"
-
     - name: Deploy to GitHub Pages
-      run: npm run deploy
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: actions/gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist
